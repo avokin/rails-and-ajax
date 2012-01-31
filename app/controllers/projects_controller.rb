@@ -4,6 +4,11 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+  def index_json
+    @project = Project.new
+    @projects = Project.all
+  end
+
   def ajax_javascript_response
     @project = Project.new params[:project]
     if @project.save
@@ -13,7 +18,8 @@ class ProjectsController < ApplicationController
   end
 
   def ajax_json_response
-
+    @project = Project.new params[:project]
+    @project.save
   end
 
   def ajax_html_response

@@ -1,0 +1,13 @@
+{
+<% if @project.errors.any? %>
+  <%
+  message = error_messages_for(@project)
+  %>
+
+  "status": "error",
+  "errors":{<%=raw message %>}
+<% else %>
+  "status": "ok",
+  "addedProject": {"name": "<%= @project.name %>", "description": "<%= @project.description %>", "editUrl": "<%= edit_project_path(@project)%>", "deleteUrl": "<%= project_path(@project)%>"}
+<% end %>
+}
