@@ -1,0 +1,11 @@
+<% if @project.errors.any? -%>
+  $("#flash_notice").hide(300);
+  $("#project_errors").html("<%= escape_javascript(error_messages_for(@project))%>");
+  $("#project_errors").show(300);
+<% else -%>
+  $("#project_errors").hide(300);
+  $("#flash_notice").html("<%= escape_javascript(flash[:notice])%>");
+  $("#flash_notice").show(300);
+  $(":input:not(input[type=submit])").val("");
+  $("#projects_list").html("<%= escape_javascript( render(:partial => "projects") ) %>");
+<% end -%>

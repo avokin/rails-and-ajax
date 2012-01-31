@@ -1,11 +1,14 @@
 RailsAndAjax::Application.routes.draw do
   resources :projects do
+
     member do
       post :ajax_javascript_response
+      put :ajax_javascript_response
       post :ajax_json_response
       post :ajax_html_response
     end
   end
+  post "projects/ajax_javascript_response"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
